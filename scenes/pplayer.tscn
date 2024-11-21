@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://cl0xritjlpoc3"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_kkeqp"]
+[ext_resource type="Texture2D" uid="uid://w8at728e22mx" path="res://assets/anims/pers exemple/main.png" id="2_e3lah"]
+[ext_resource type="Texture2D" uid="uid://clu8hwtdrich1" path="res://assets/anims/4.png" id="2_fpfoc"]
+[ext_resource type="Texture2D" uid="uid://cnkee5atyb2wq" path="res://assets/anims/fight1.png" id="3_ec7y5"]
+[ext_resource type="Texture2D" uid="uid://bohiakc00w2j4" path="res://assets/anims/2.png" id="3_l8nq2"]
+[ext_resource type="Texture2D" uid="uid://bvrc8kr6u1ld8" path="res://assets/anims/1.png" id="4_gae6f"]
+[ext_resource type="Texture2D" uid="uid://cyxtmuqkxcym1" path="res://assets/anims/pers exemple/fight0.png" id="4_ial76"]
+[ext_resource type="Texture2D" uid="uid://f365rt5iteqh" path="res://assets/anims/3.png" id="5_wn07p"]
+[ext_resource type="Texture2D" uid="uid://dllu1g3kskalk" path="res://assets/anims/pers exemple/sit.png" id="9_pb57k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lano2"]
+size = Vector2(32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uqo4g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e3lah")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ec7y5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ial76")
+}],
+"loop": true,
+"name": &"1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wn07p")
+}, {
+"duration": 0.7,
+"texture": ExtResource("3_l8nq2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fpfoc")
+}, {
+"duration": 0.7,
+"texture": ExtResource("3_l8nq2")
+}, {
+"duration": 1.6,
+"texture": ExtResource("4_gae6f")
+}],
+"loop": true,
+"name": &"atack",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e3lah")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_pb57k")
+}],
+"loop": true,
+"name": &"prysiad",
+"speed": 5.0
+}]
+
+[node name="Pplayer" type="CharacterBody2D"]
+collision_mask = 3
+script = ExtResource("1_kkeqp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lano2")
+one_way_collision = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uqo4g")
+animation = &"1"
+frame_progress = 0.805463
